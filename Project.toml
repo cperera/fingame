@@ -1,0 +1,4 @@
+name = "fingame"
+uuid = "74686ef1-dd93-4e67-be7f-bef670e924dd"
+authors = ["Christopher R. Reyes <ChrisReyes@alum.mit.edu>", "Chrisantha J. Perera <cperera90@gmail.com>"]
+version = "0.1.0"
