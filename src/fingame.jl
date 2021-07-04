@@ -7,9 +7,11 @@ end
 # Command strings
 ADMIN = Dict(
     "HELP"=>["help","commands","?","h"],
-    "QUIT"=>["quit","q"],
+    "QUIT"=>["quit","q","exit"],
     "NEWGAME"=>["newgame","restart","r"]
 )
+BUY = ["b", "buy"]
+SELL = ["s", "sell"]
 
 function admin(lowered_input::AbstractString)
     if lowered_input in ADMIN["HELP"]
@@ -18,6 +20,14 @@ function admin(lowered_input::AbstractString)
         return "AWAITING COMMAND"
     elseif lowered_input in ADMIN["QUIT"]
         return "QUIT"
+    elseif lowered_input in BUY
+        println("<BUY MENU GOES HERE>")
+        println(readline())
+    elseif lowered_input in SELL
+        println("<SELL MENU GOES HERE>")
+        println(readline())
+    else
+        println(join(["Input not recognized: ", lowered_input]))
     end
 end
 
@@ -30,6 +40,7 @@ function input_loop()
     state = join(["You're winning! Current money: ", "PLAYER_MONEY"])
     while true
         println(state)
+        print("\$\$ ")
         command = lowercase(readline())
         result = process_command(command)
         if result == "QUIT"
